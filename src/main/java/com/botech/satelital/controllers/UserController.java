@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.botech.satelital.models.entities.User;
+import com.botech.satelital.models.entities.UserRequest;
 import com.botech.satelital.services.UserService;
 
 import jakarta.validation.Valid;
@@ -50,7 +51,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@Valid @RequestBody User user, BindingResult result, @PathVariable Long id){
+    public ResponseEntity<?> update(@Valid @RequestBody UserRequest user, BindingResult result, @PathVariable Long id){
         if(result.hasErrors()){
             return validation(result);
         }
